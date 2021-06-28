@@ -33,6 +33,7 @@
     "cross-env": "^7.0.3",
     "graphql": "^15.5.1",
     "graphql-tools": "^7.0.5",
+    "joi": "^17.4.0",
     "pg": "^8.6.0",
     "psql": "0.0.1",
     "reflect-metadata": "^0.1.13",
