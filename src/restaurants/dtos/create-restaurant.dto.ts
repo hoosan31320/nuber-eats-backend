@@ -15,7 +15,7 @@ export class CreateRestaurantDto {
 
   @Field(type => String)
   @IsString()
-  address: String;
+  address: string;
 
   @Field(type => String)
   @IsString()
