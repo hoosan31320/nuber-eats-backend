@@ -12,7 +12,6 @@ import { JwtService } from "src/jwt/jwt.service";
 export class UsersService {
   constructor(
     @InjectRepository(User) private readonly users: Repository<User>,
-    private readonly config: ConfigService,
     private readonly jwtService: JwtService,
   ) {}
 
@@ -53,7 +52,7 @@ export class UsersService {
           error: 'Wrong password',
         };
       }
-      const token = this.jwtService.sign({id:user.id});
+      const token = this.jwtService.sign({ id: user.id });   // <다른 모듈에서 사용가능 형태>
       return {
         ok: true,
         token,
