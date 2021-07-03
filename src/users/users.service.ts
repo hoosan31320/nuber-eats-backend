@@ -52,7 +52,7 @@ export class UsersService {
           error: 'Wrong password',
         };
       }
-      const token = this.jwtService.sign({ id: user.id });   // <다른 모듈에서 사용가능 형태>
+      const token = this.jwtService.sign(user.id);  
       return {
         ok: true,
         token,
