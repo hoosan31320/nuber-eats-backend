@@ -75,5 +75,5 @@ Nest is [MIT licensed](LICENSE).
 ## update name시에 5글자 이하가 않걸러짐
 
 ## 4.7 강의에서 npm i @types/bcrypt --dev-only(영상)
-
 ## npm i @types/bcrypt (깃헙) 다름 but dev에 설치돼지 않음.
+#5.1 강의에서 npm i @types/jsonwebtoken -dev--only로 설치 but dev에 설치돼지 않음.
