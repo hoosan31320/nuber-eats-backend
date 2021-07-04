@@ -49,7 +49,7 @@ export class UsersService {
     try {
       const user = await this.users.findOne(
         { email },
-        { select: ['password']},
+        { select: ['id', 'password']},
       );
       if (!user) {
         return {
