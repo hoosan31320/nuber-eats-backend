@@ -81,3 +81,10 @@ Nest is [MIT licensed](LICENSE).
 #5.1 강의에서 npm i @types/jsonwebtoken -dev--only로 설치 but dev에 설치돼지 않음.
 
 # password까지 hash 돼는 문제
+
+## Restaurant Model
+
+- name
+- category
+- address
+- coverImage
