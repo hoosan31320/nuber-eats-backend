@@ -23,7 +23,7 @@ registerEnumType(UserRole, { name: 'UserRole' })
 @ObjectType()
 @Entity()
 export class User extends CoreEntity {
-  @Column()
+  @Column({ unique: true })  //editProfile에서 변경시 중복체크 없음.
   @Field(type => String)
   @IsEmail()
   email: string;
