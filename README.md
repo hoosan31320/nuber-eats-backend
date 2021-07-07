@@ -84,7 +84,14 @@ Nest is [MIT licensed](LICENSE).
 
 ## Restaurant Model
 
-- name
-- category
-- address
-- coverImage
+- Edit Restaurant
+- Delete Restaurant
+
+- See Categories
+- See Restaurants by Category (pagination)
+- See Restaurants (pagination)
+- See Restaurant
+
+- Create Dish
+- Edit Dish
+- Delete Dish
