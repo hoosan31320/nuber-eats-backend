@@ -3,6 +3,7 @@ import { InjectRepository } from "@nestjs/typeorm";
 import { User } from "src/users/entities/user.entity";
 import { Repository } from "typeorm";
 import { CreateRestaurantInput, CreateRestaurantOutput } from "./dtos/create-restaurant.dto";
+import { DeleteRestaurantInput, DeleteRestaurantOutput } from "./dtos/delete-restaurant.dto";
 import { EditRestaurantInput, EditRestaurantOutput } from "./dtos/edit-restaurant.dto";
 import { Category } from "./entities/category.entity";
 import { Restaurant } from "./entities/restaurant.entity";
@@ -70,9 +71,9 @@ export class RestaurantService {
         {
           id: editRestaurantInput.restaurantId,
           ...editRestaurantInput,
-          ...(category && { category }),
-        },
-      ]);
+          ...(category && { category }), // the category may or may not be there
+        },                               // if category is there, then return an object
+      ]);                                // where category is equals to category
       return {
         ok: true,
       };
@@ -84,4 +85,35 @@ export class RestaurantService {
     }
   }
 
+  async deleteRestaurant(
+    owner: User,
+    { restaurantId }: DeleteRestaurantInput,
+  ): Promise<DeleteRestaurantOutput> {
+    try {
+      const restaurant = await this.restaurants.findOne(
+        restaurantId,
+      );
+      if (!restaurant) {
+        return {
+          ok: false,
+          error: 'Restaurant not found',
+        };
+      }
+      if (owner.id !== restaurant.ownerId) {
+        return {
+          ok: false,
+          error: 'You can not delete a restaurant that you do not own',
+        };
+      }
+      await this.restaurants.delete(restaurantId);
+      return {
+        ok: true,
+      };
+    } catch {
+      return {
+        ok: false,
+        error: 'Could not delete Restaurant',
+      };
+    }
+  }
 }  
