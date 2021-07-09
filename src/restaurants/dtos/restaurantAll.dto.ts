@@ -3,10 +3,10 @@ import { PaginationInput, PaginationOutput } from "src/common/dtos/pagination.dt
 import { Restaurant } from "../entities/restaurant.entity";
 
 @InputType()
-export class RestaurantsInput extends PaginationInput {}
+export class RestaurantAllInput extends PaginationInput {}
 
 @ObjectType()
-export class RestaurantsOutput extends PaginationOutput {
+export class RestaurantAllOutput extends PaginationOutput {
   @Field(type => [Restaurant], { nullable: true })
   results?: Restaurant[];
 }
