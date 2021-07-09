@@ -78,7 +78,7 @@ Nest is [MIT licensed](LICENSE).
 
 ## npm i @types/bcrypt (깃헙) 다름 but dev에 설치돼지 않음.
 
-#5.1 강의에서 npm i @types/jsonwebtoken -dev--only로 설치 but dev에 설치돼지 않음.
+## 5.1 강의에서 npm i @types/jsonwebtoken -dev--only로 설치 but dev에 설치돼지 않음.
 
 # password까지 hash 돼는 문제
 
@@ -95,3 +95,8 @@ Nest is [MIT licensed](LICENSE).
 - Create Dish
 - Edit Dish
 - Delete Dish
+
+- Orders CRUD
+- Orders Subscription (Owner, Customer, Delivery)
+
+- Payments (CRON)
