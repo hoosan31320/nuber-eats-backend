@@ -23,3 +23,24 @@ mutation {
     error
   }
 }
+
+query {
+  restaurant(input:{restaurantId:2}){
+    ok
+    restaurant{
+      menu {
+        name
+        id
+        price
+        options {
+          name
+          choices {
+            name
+            extra
+          }
+          extra
+        }
+      }
+    }
+  }
+}
