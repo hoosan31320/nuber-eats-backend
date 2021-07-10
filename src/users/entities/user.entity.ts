@@ -38,10 +38,10 @@ export class User extends CoreEntity {
   @IsEnum(UserRole)
   role: UserRole;
 
-  @Column({ default: false })
-  @Field(type => Boolean)
-  @IsBoolean()
-  verified: boolean;
+  @Column({ default: false })    // TypeOrm Code
+  @Field(type => Boolean)        // GrapnQl
+  @IsBoolean()                   // Validator
+  verified: boolean;             // DB name - type
 
   @Field(type => [Restaurant])
   @OneToMany(
