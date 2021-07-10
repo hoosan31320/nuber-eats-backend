@@ -1,0 +1,25 @@
+mutation {
+  createDish(input: {
+    restaurantId: 2
+    name: "Mexican Chicken"
+    price: 12
+    description: "Delicious"
+    options: [
+      { 
+        name: "Spice Level"
+				choices: [{name:"Little Bit"}, {name:"Kill Me"}]
+      }
+      {
+        name: "Pickle"
+        extra: 1
+      }
+      {
+        name: "Size"
+       	choices:[{name:"L", extra:2}, {name:"XL", extra:5}]
+      }
+    ]
+  }){
+    ok
+    error
+  }
+}
