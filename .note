@@ -1,3 +1,4 @@
+<Owner token 가지고 만들어야 함 - DB에 저장될때 json에 저장>
 mutation {
   createDish(input: {
     restaurantId: 2
@@ -24,6 +25,7 @@ mutation {
   }
 }
 
+<Owner token 가지고 봐야 할듯>
 query {
   restaurant(input:{restaurantId:2}){
     ok
@@ -42,5 +44,25 @@ query {
         }
       }
     }
+  }
+}
+
+<Client token 가지고 만들어야 함>
+mutation {
+  createOrder (input: {
+    restaurantId: 2
+    items: [
+    	{
+        dishId: 10
+        options: [
+          { name: "Spice Level", choice: "Kill Me" }
+          { name: "Size", choice: "XL" }
+          { name: "Pickle" }
+        ]
+      }
+  	]
+  }){
+    ok
+    error
   }
 }
