@@ -109,12 +109,14 @@ export class OrderService {
         orders = await this.orders.find({
           where: {
             customer: user,
+            ...(status && { status }),
           },
         });
       } else if (user.role === UserRole.Delivery) {
         orders = await this.orders.find({
           where: {
             driver: user,
+            ...(status && { status }),
           },
         });
       } else if (user.role === UserRole.Owner) {
@@ -126,6 +128,9 @@ export class OrderService {
         });
         orders = restaurants.map(restaurant => restaurant.orders).flat(1);
         // console.log(orders);     // add "lib": ["ES2019"] in file tsconfig.json to fix flat() error
+        if (status) {
+          orders = orders.filter(order => order.status === status);
+        }
       }
       return {
         ok: true,
