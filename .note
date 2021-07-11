@@ -25,6 +25,35 @@ mutation {
   }
 }
 
+<orderItem 2개 생성>
+mutation {
+  createOrder (input: {
+    restaurantId: 2
+    items: [
+    	{
+        dishId: 10
+        options: [
+          { name: "Spice Level", choice: "Kill Me" }
+          { name: "Size", choice: "XL" }
+          { name: "Pickle" }
+        ]
+      },
+      {
+        dishId: 10
+        options: [
+          { name: "Size", choice: "L"}
+        ]
+      }
+  	]
+  }){
+    ok
+    error
+  }
+}
+
+
+
+
 <Owner token 가지고 봐야 할듯>
 query {
   restaurant(input:{restaurantId:2}){
