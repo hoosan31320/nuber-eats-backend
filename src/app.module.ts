@@ -62,10 +62,9 @@ import { OrderItem } from './orders/entities/order-item.entity';
       autoSchemaFile: true,
       context: ({ req, connection }) => {
         if (req) {
-          return { headers: req.headers };  // auth.guards에서..
+          return { headers: req.headers };
         } else if (connection) {
-          console.log(connection.context, "websocket........");
-          return { headers: connection.context };  // 이 headers는 guard로 않넘어감.
+          return { headers: connection.context };
         }
       },
     }),
