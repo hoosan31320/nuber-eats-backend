@@ -16,7 +16,7 @@ export class AuthGuard implements CanActivate {
       return true;
     }
     const gqlContext = GqlExecutionContext.create(context).getContext();
-    console.log(gqlContext);
+    console.log(gqlContext.token);
     const user: User = gqlContext['user'];
     if (!user) {
       return false;  //  "message": "Forbidden resource",
