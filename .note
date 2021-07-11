@@ -95,3 +95,10 @@ mutation {
     error
   }
 }
+
+
+1. http를 통해 request가 jwt middleware로
+2. jwt middleware는 헤더에서 토큰을 가져와서 유저를 찾음
+3. jwt middleware는 찾은 유저를 req에 넣음
+4. graphql context function이 request 내부에서 유저를 가져와 context.user에 넣어줌.
+5. context.user를 Guard에 제공
